@@ -2,21 +2,17 @@ package com.spiceUp.ui;
 
 import java.util.Scanner;
 
+import com.spiceUp.javaFrame.Messages;
+import com.spiceUp.javaFrame.Print;
+
+
 public class Main {
-	static void displayAdminMenu() {
-		System.out.println("1. Add new recipes");
-		System.out.println("2. View All recipes");
-		System.out.println("3. Update existing recipes");
-		System.out.println("4. Delete recipes");
-		System.out.println("5. View the number of likes received by each recipe");
-		System.out.println("6. Generate reports on recipe likes and popularity");
-		System.out.println("0. Logout");
-	}
+
 	static void adminMenu(Scanner sc) {
 		int choice = 0;
 		do {
-			displayAdminMenu();
-			System.out.print("Enter selection : ");
+			Messages.adminOption();
+			Messages.optionInput();
 			choice = sc.nextInt();
 			switch(choice) {
 			case 1:{
@@ -32,11 +28,11 @@ public class Main {
 				break;
 			}
 			case 4:{
-				
+				AdminUI.deleteRecipe(sc);
 				break;
 			}
 			case 5:{
-				
+				AdminUI.viewNumberOfLike();
 				break;
 			}
 			case 6:{
@@ -44,50 +40,70 @@ public class Main {
 				break;
 			}
 			case 0:{
-				System.out.println("Thanks for using the services");
+				Messages.success("Thanks for using the services");
 				break;
 			}
-			default:System.out.println("Invalid section, Try again");
+			default:{
+				Messages.error("Invalid section, Try again");
+				Print.printLine(1);
+			}
 			}
 		}while(choice != 0);
 	}
 	static void adminLogin(Scanner sc) {
-		System.out.print("Enter username ");
+		Messages.takeInput("Enter username", null);
 		String username = sc.next();
-		System.out.print("Enter password ");
+		Print.printLine(1);
+		Messages.takeInput("Enter password",null);
 		String password = sc.next();
+		Print.printLine(1);
 		if(username.equals("a") && password.equals("a")) {
 			adminMenu(sc);
 		}else {
-			System.out.println("Invalid Username of Password");
+			Messages.error("Invalid Username of Password");
+			Print.printLine(1);
+			
 		}
 	}
 	public static void main(String[] args) {
+		 Messages.initial();
+		 Messages.welcome();
     	Scanner sc = new Scanner(System.in);
     	int choice = 0;
     	do {
-    		System.out.println("1. Admin Login");
-    		System.out.println("2. Customer Login");
-    		System.out.println("3. Customer Registration");
-    		System.out.println("0. Exit");
-    		System.out.print("Enter Selection : ");
-    		choice = sc.nextInt();
-    		switch(choice) {
-    			case 1:
-    				adminLogin(sc);
-    				break;
-    			case 2:
-    				CustomerUI.userLogin(sc);
-    				break;
-    			case 3:
-    				CustomerUI.customerRegistration(sc);
-    				break;
-    			case 0:
-    				System.out.println("Thanks for using the services");
-    				break;
-    			default:
-    				System.out.println("Invalid Selection, try again");
+    		try {
+    			do {
+    				Messages.welcomeOption();
+    				Messages.optionInput();
+		    		choice = sc.nextInt();
+		    		Print.printLine(1);
+		    		switch(choice) {
+		    			case 1:
+		    				adminLogin(sc);
+		    				break;
+		    			case 2:
+		    				CustomerUI.userLogin(sc);
+		    				break;
+		    			case 3:
+		    				CustomerUI.customerRegistration(sc);
+		    				break;
+		    			case 0:
+		    				Messages.selectedOption("Thanks for using the services");
+		    				break;
+		    			default:
+		    				Messages.error("Invalid Selection, try again");
+		    				Print.printLine(1);
+		    		}
+		    		
+    			}while(choice != 0);
+    			
+    		}catch(Exception ex) {
+    			ex.printStackTrace();
+    			sc.nextLine();
+    			Messages.warning("Please don't pass any other parameter");
     		}
+//    		System.out.println(choice);
+    		choice = 1;
     	}while(choice != 0);
     	sc.close();
 	}
