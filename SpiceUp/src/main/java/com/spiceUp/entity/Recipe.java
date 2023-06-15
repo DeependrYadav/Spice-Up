@@ -1,10 +1,13 @@
 package com.spiceUp.entity;
 
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,23 +28,28 @@ public class Recipe {
 	@Column(nullable = false)
 	private String preparation_steps;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(name = "like_table", 
-				joinColumns = {@JoinColumn(referencedColumnName = "recipe_id") }, 
-				inverseJoinColumns = {@JoinColumn(referencedColumnName = "customer_id") })
+				joinColumns = {@JoinColumn(referencedColumnName = "recipe_id") },
+				inverseJoinColumns = {@JoinColumn(referencedColumnName = "customer_id")})
 	Set<Customer> customer_set;
+	
+	@Column(nullable = false)
+	@Enumerated
+	private IsDeleted is_deleted;
 
 	public Recipe() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Recipe(String recipe_name, String ingredients, String preparation_steps, Set<Customer> customer_set) {
+	public Recipe(String recipe_name, String ingredients, String preparation_steps, Set<Customer> customer_set,IsDeleted is_deleted) {
 		super();
 		this.recipe_name = recipe_name;
 		this.ingredients = ingredients;
 		this.preparation_steps = preparation_steps;
 		this.customer_set = customer_set;
+		this.is_deleted = is_deleted;
 	}
 
 	public int getRecipe_id() {
@@ -84,4 +92,32 @@ public class Recipe {
 		this.customer_set = customer_set;
 	}
 
+	public IsDeleted getIs_deleted() {
+		return is_deleted;
+	}
+
+	public void setIs_deleted(IsDeleted is_deleted) {
+		this.is_deleted = is_deleted;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(ingredients, preparation_steps, recipe_name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Recipe other = (Recipe) obj;
+		return Objects.equals(ingredients, other.ingredients)
+				&& Objects.equals(preparation_steps, other.preparation_steps)
+				&& Objects.equals(recipe_name, other.recipe_name);
+	}
+	
+	
 }
