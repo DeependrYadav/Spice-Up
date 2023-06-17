@@ -80,7 +80,6 @@ public class CustomerDAOImpl implements CustomerDAO{
 			q.setParameter("like", str);
 			
 			list = (List<Recipe>)q.getResultList();
-//			System.out.println(list);
 			
 			if(list.size() == 0)throw new NoRecordFoundException("No record Found");
 			

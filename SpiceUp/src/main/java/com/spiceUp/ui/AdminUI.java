@@ -36,7 +36,7 @@ public class AdminUI {
 		try {
 			rs.addRecipe(recipe);
 		} catch (SomeThingWentWrongException e) {
-			e.printStackTrace();
+			Messages.error(e.getMessage());
 		}
 	}
 	
@@ -46,13 +46,20 @@ public class AdminUI {
 		try {
 			List<Recipe> recipe = rs.viewAllRecipes();
 			
-			for(Recipe r : recipe) {
-			System.out.println("Recipe Id = "+ r.getRecipe_id()+", Recipe name = " + r.getRecipe_name()+ ", Ingredients = "+ r.getIngredients()
-			+", Preparation steps = "+ r.getPreparation_steps());
-		}
+			recipe.forEach(r->{
+				Messages.valueName("Recipe Id = ");
+				Messages.value(r.getRecipe_id());
+				Messages.valueName(", Recipe name = ");
+				Messages.value(r.getRecipe_name());
+				Messages.valueName(", Ingredients = ");
+				Messages.value(r.getIngredients());
+				Messages.valueName(", Preparation steps = ");
+				Messages.value(r.getPreparation_steps());
+				Print.printLine(1);
+			});
+			Print.printLine(1);
 		} catch (SomeThingWentWrongException | NoRecordFoundException e) {
-//			e.printStackTrace();
-			System.out.println(e.getMessage());
+			Messages.error(e.getMessage());
 		}
 	}
 	
@@ -82,7 +89,7 @@ public class AdminUI {
 		try {
 			rs.updateRecipe(recipe);
 		} catch (SomeThingWentWrongException | NoRecordFoundException e) {
-			e.printStackTrace();
+			Messages.error(e.getMessage());
 		}
 	}
 
@@ -95,7 +102,7 @@ public class AdminUI {
 		try {
 			rs.deleteRecipe(recipe_id);
 		} catch (SomeThingWentWrongException | NoRecordFoundException e) {
-			e.printStackTrace();
+			Messages.error(e.getMessage());
 		}
 	}
 
@@ -106,13 +113,17 @@ public class AdminUI {
 		try {
 			Map<String , Integer> recipeMap = rs.viewNumberOfLikes();
 			
-			for(Map.Entry<String,Integer> m : recipeMap.entrySet()) {
-				System.out.println("Recipe Name = "+m.getKey()+", Number of likes = "+m.getValue());
-			}
+			recipeMap.forEach((k,v)->{
+				Messages.valueName("Recipe Name = ");
+				Messages.value(k);
+				Messages.valueName(", Number of likes = ");
+				Messages.value(v);
+				Print.printLine(1);
+			});
+			Print.printLine(1);
 			
 		} catch (SomeThingWentWrongException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Messages.error(e.getMessage());
 		}
 	}
 	

@@ -54,6 +54,12 @@ public class Messages {
             Print.printStyle(feild + " : " , Design.RED_BACKGROUND, Design.WHITE, Design.BOLD);
         }
     }
+    static public void valueName(String str) {
+    	Print.printStyle(str , Design.YELLOW, Design.BOLD);
+    }
+    static public void value(Object val) {
+    	Print.printStyle(val , Design.GREEN, Design.ITALIC, Design.BOLD);
+    }
     static public void welcomeUser(String name){
         Print.printDesign("Welcome back '"+Print.wrapStyle(name, Design.GREEN, Design.ITALIC, Design.BOLD)+"' (Happy to see you again :)", wd); 
     }
@@ -90,15 +96,16 @@ public class Messages {
         option("Logout", 0);
         Print.printLine(1);
     }
-    static public void createBatch(){
-        selectedOption("Creating a new Batch...");
-        Print.printLine(1);
-        optionsTitle("PLEASE ENTER BATCH DETAILS", true);
-    }
-    static public void updateBatch(){
-        Print.printLine(1);
-        optionsTitle("PLEASE ENTER BATCH DETAILS", true);
-    }
+    
+//    static public void createBatch(){
+//        selectedOption("Creating a new Batch...");
+//        Print.printLine(1);
+//        optionsTitle("PLEASE ENTER BATCH DETAILS", true);
+//    }
+//    static public void updateBatch(){
+//        Print.printLine(1);
+//        optionsTitle("PLEASE ENTER BATCH DETAILS", true);
+//    }
 //    static public void viewBatch(List<Batch> batches){
 //        
 //        for(int i = 0; i < batches.size(); i++){
