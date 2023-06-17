@@ -1,6 +1,9 @@
 package com.spiceUp.services;
 
+import java.util.List;
+
 import com.spiceUp.entity.Customer;
+import com.spiceUp.entity.Recipe;
 import com.spiceUp.exception.NoRecordFoundException;
 import com.spiceUp.exception.SomeThingWentWrongException;
 
@@ -10,11 +13,11 @@ public interface CustomerService {
 
 	void addCustomer(Customer cus)throws SomeThingWentWrongException;
 	
-	void filterByIngredients(String str)throws NoRecordFoundException,SomeThingWentWrongException;
+	List<Recipe> filterByIngredients(String str)throws NoRecordFoundException,SomeThingWentWrongException;
 
 	void addToLike(int recipe_id)throws NoRecordFoundException,SomeThingWentWrongException;
 
-	void viewAllLikeRecipe()throws NoRecordFoundException,SomeThingWentWrongException;
+	List<Recipe> viewAllLikeRecipe()throws NoRecordFoundException,SomeThingWentWrongException;
 	
 	void deleteMyAccount()throws SomeThingWentWrongException;
 }

@@ -24,15 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void filterByIngredients(String str) throws NoRecordFoundException, SomeThingWentWrongException {
-		CustomerDAO cdao = new CustomerDAOImpl();
-		
-		List<Recipe> list = cdao.filterByIngredients(str);
-
-		for(Recipe r : list) {
-			System.out.println("Recipe Id = "+ r.getRecipe_id()+", Recipe name = " + r.getRecipe_name()+ ", Ingredients = "+ r.getIngredients()
-			+", Preparation steps = "+ r.getPreparation_steps());
-		}
+	public List<Recipe> filterByIngredients(String str) throws NoRecordFoundException, SomeThingWentWrongException {
+		CustomerDAO cdao = new CustomerDAOImpl();		
+		return cdao.filterByIngredients(str);
 	}
 
 	@Override
@@ -42,15 +36,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void viewAllLikeRecipe() throws NoRecordFoundException, SomeThingWentWrongException {
+	public List<Recipe> viewAllLikeRecipe() throws NoRecordFoundException, SomeThingWentWrongException {
 		CustomerDAO cdao = new CustomerDAOImpl();
-		
-		List<Recipe> list = cdao.viewAllLikeRecipe();
-		
-		for(Recipe r : list) {
-			System.out.println("Recipe Id = "+ r.getRecipe_id()+", Recipe name = " + r.getRecipe_name()+ ", Ingredients = "+ r.getIngredients()
-			+", Preparation steps = "+ r.getPreparation_steps());
-		}
+		return cdao.viewAllLikeRecipe();
 	}
 
 	@Override
