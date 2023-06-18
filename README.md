@@ -49,6 +49,9 @@ Here are some additional guidelines and considerations for the project:
 - Create an ER-Diagram to visualize the database structure and relationships.
 - Develop the project in a modular manner, following best practices to ensure reusability and scalability.
 
+# Schema
+<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/4202114c-affa-44ea-b5a4-8edbb6971791"/>
+
 Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!
 
 **Note:- This is a basic project so I didn't think much about data security.**
