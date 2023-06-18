@@ -15,6 +15,7 @@ public class Main {
 				do {
 					Messages.adminOption();
 					Messages.optionInput();
+					Print.printLine(1);
 					choice = sc.nextInt();
 					switch (choice) {
 					case 1: {
@@ -42,23 +43,22 @@ public class Main {
 						break;
 					}
 					case 0: {
-						Messages.success("Thanks for using the services");
+						Messages.success("Returning to main menu");
+						Print.printLine(1);
 						break;
 					}
 					default: {
-						Print.printLine(1);
 						Messages.error("Invalid section, Try again");
 						Print.printLine(1);
 					}
 					}
 				} while (choice != 0);
 			} catch (Exception ex) {
-//				ex.printStackTrace();
 				sc.nextLine();
+				Print.printLine(1);
 				Messages.warning("Please don't pass any other parameter");
 				Print.printLine(1);
 			}
-			choice = 1;
 		} while (choice != 0);
 	}
 
@@ -70,6 +70,7 @@ public class Main {
 		String password = sc.next();
 		Print.printLine(1);
 		if (username.equals("a") && password.equals("a")) {
+			Messages.success("Successfully Login");
 			adminMenu(sc);
 		} else {
 			Messages.error("Invalid Username of Password");
@@ -86,6 +87,7 @@ public class Main {
 		do {
 			try {
 				do {
+					Print.printLine(1);
 					Messages.welcomeOption();
 					Messages.optionInput();
 					choice = sc.nextInt();
@@ -111,7 +113,6 @@ public class Main {
 				} while (choice != 0);
 
 			} catch (Exception ex) {
-//				ex.printStackTrace();
 				sc.nextLine();
 				Print.printLine(1);
 				Messages.warning("Please don't pass any other parameter");
