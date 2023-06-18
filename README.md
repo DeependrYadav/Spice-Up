@@ -50,3 +50,13 @@ Here are some additional guidelines and considerations for the project:
 - Develop the project in a modular manner, following best practices to ensure reusability and scalability.
 
 Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!
+
+**Note:- This is a basic project so I didn't think much about data security.**
+
+**"Suggestions and project Improvements are Invited!"**  
+  
+**Thanks a lot**   
+**This is a solo Project**
+
+**Project created by => Deependra yadav**
+
