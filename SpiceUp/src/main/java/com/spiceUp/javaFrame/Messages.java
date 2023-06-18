@@ -1,12 +1,10 @@
 package com.spiceUp.javaFrame;
 
-import java.util.List;
-
 import com.spiceUp.entity.AppInfo;
 
 public class Messages {
     static Design intro = new Design(120);
-    static Design wd = new Design(55);
+    static Design wd = new Design(53);
     static Design batch = new Design(150);
 
     static{
@@ -44,6 +42,7 @@ public class Messages {
         Print.printlnStyle("->" + title +" : Press "+Print.wrapStyle(index), Design.ITALIC, Design.GREEN);
     }
     static public void optionInput(){
+    	Print.printLine(1);
         Print.printStyle("Enter selection -> ", Design.UNDERLINE,Design.YELLOW );
     }
     static public void takeInput(String feild, String type){
@@ -58,7 +57,7 @@ public class Messages {
     	Print.printStyle(str , Design.YELLOW, Design.BOLD);
     }
     static public void value(Object val) {
-    	Print.printStyle(val , Design.GREEN, Design.ITALIC, Design.BOLD);
+    	Print.printStyle(val , Design.RED, Design.ITALIC, Design.BOLD);
     }
     static public void welcomeUser(String name){
         Print.printDesign("Welcome back '"+Print.wrapStyle(name, Design.GREEN, Design.ITALIC, Design.BOLD)+"' (Happy to see you again :)", wd); 
@@ -92,78 +91,9 @@ public class Messages {
         option("Update existing recipes", 3);
         option("Delete recipes", 4);
         option("View the number of likes received by each recipe", 5);
-        option("Generate reports on recipe likes and popularity", 6);
+//        option("Generate reports on recipe likes and popularity", 6);
         option("Logout", 0);
-        Print.printLine(1);
     }
-    
-//    static public void createBatch(){
-//        selectedOption("Creating a new Batch...");
-//        Print.printLine(1);
-//        optionsTitle("PLEASE ENTER BATCH DETAILS", true);
-//    }
-//    static public void updateBatch(){
-//        Print.printLine(1);
-//        optionsTitle("PLEASE ENTER BATCH DETAILS", true);
-//    }
-//    static public void viewBatch(List<Batch> batches){
-//        
-//        for(int i = 0; i < batches.size(); i++){
-//
-//            StringBuilder list = new StringBuilder();
-//            list.append(Print.wrapStyle("Batch ID: ", Design.BOLD));
-//            list.append(batches.get(i).getID());
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("Course Name: ", Design.BOLD));
-//            list.append(batches.get(i).getCourseName());
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("Number of Seats: ", Design.BOLD));
-//            list.append(batches.get(i).getNumberOfSeats());
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("Start Date: ", Design.BOLD));
-//            list.append(batches.get(i).getStartDate());
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("Duration (Days): ", Design.BOLD));
-//            list.append(batches.get(i).getDurationInDays());
-//            
-//            list.append(Print.wrapStyle("    ("+Print.wrapStyle(i+1, Design.GREEN)+")", Design.ITALIC));
-//
-//            System.out.println("\u001B" + Print.wrapDesign(list.toString(), batch).trim());
-//        }
-//    }
-//    static public void viewFaculty(List<User> faculties){
-//        
-//        for(int i = 0; i < faculties.size(); i++){
-//
-//            StringBuilder list = new StringBuilder();
-//            list.append(Print.wrapStyle("Faculty ID: ", Design.BOLD));
-//            list.append(faculties.get(i).getID());
-//            list.append(Print.wrapStyle(" | ", Design.RED)
-//            );
-//            list.append(Print.wrapStyle("Username: ", Design.BOLD));
-//            list.append(faculties.get(i).USERNAME);
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("Phone Number: ", Design.BOLD));
-//            list.append(faculties.get(i).details.number);
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("State: ", Design.BOLD));
-//            list.append(faculties.get(i).details.state);
-//            list.append(Print.wrapStyle(" | ", Design.RED));
-//
-//            list.append(Print.wrapStyle("ZipCode: ", Design.BOLD));
-//            list.append(faculties.get(i).details.zipcode);
-//            
-//            list.append(Print.wrapStyle("    ("+Print.wrapStyle(i+1, Design.GREEN)+")", Design.ITALIC));
-//
-//            System.out.println("\u001B" + Print.wrapDesign(list.toString(), batch).trim());;
-//        }
-//    }
     
     // faculty/user messages
     static public void userOption(){

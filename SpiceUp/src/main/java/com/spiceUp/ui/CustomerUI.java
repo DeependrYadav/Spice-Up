@@ -18,7 +18,7 @@ import com.spiceUp.services.CustomerServiceImpl;
 public class CustomerUI {
 
 	static void customerRegistration(Scanner sc) {
-		Print.printLine(1);
+//		Print.printLine(1);
 		Messages.takeInput("Enter username", null);
 		String username = sc.next();
 		Print.printLine(1);
@@ -40,7 +40,6 @@ public class CustomerUI {
 		try {
 			CustomerService customerService = new CustomerServiceImpl();
 			customerService.addCustomer(cus);
-			Messages.success("Customer added successfully");
 			Print.printLine(1);
 		} catch (SomeThingWentWrongException ex) {
 			Messages.error(ex.getMessage());
@@ -181,8 +180,8 @@ public class CustomerUI {
 						break;
 					}
 					case 0: {
-						LoggedInUserId.loggedInUserId = 0;
-						Messages.selectedOption("Thanks for using the services");
+						Print.printLine(1);
+						Messages.selectedOption("Returning to main menu");
 						break;
 					}
 					default: {
@@ -196,7 +195,6 @@ public class CustomerUI {
 				Messages.warning("Please don't pass any other parameter");
 				Print.printLine(1);
 			}
-			choice = 1;
 		} while (choice != 0);
 	}
 
