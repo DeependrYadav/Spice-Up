@@ -2,6 +2,8 @@
 
 The Recipe Management System is a software solution designed to assist users in managing and organizing their recipes. This system provides a user-friendly interface to store, search, and retrieve recipes easily. Users can view recipes, filter them based on ingredients, and like their favorite recipes. The system also includes an admin user with additional functionalities to manage recipes, view likes, and perform CRUD operations on recipes. The project is developed using Java programming language, MySQL as the database management system, and Hibernate as the Object-Relational Mapping (ORM) framework.
 
+<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/d0c284f9-d722-4758-8d67-53419fe1f1b6"/>
+
 ## Table of Contents
 - [Domain Description](#domain-description)
 - [Types of Users](#types-of-users)
@@ -29,6 +31,8 @@ The role of the customer in the Recipe Management System includes the following:
 5. Like or favorite recipes to save them for future reference.
 6. Log out from the Recipe Management System.
 
+<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/bd81f245-b2d8-4daa-8b0a-a32e7ccbf1bd"/>
+
 ## Role of Admin
 The role of the admin in the Recipe Management System includes the following:
 
@@ -41,18 +45,26 @@ The role of the admin in the Recipe Management System includes the following:
 7. Generate reports on recipe likes and popularity.
 8. Log out from the admin account.
 
-## Note
+<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/83b9718a-e024-47c4-87ba-ead61f07b0b6"/>
+
+
+## This project was developed using the java programing language and it's utilizes hibernate , mysql liberaries
 Here are some additional guidelines and considerations for the project:
 
-- Design the database schema using MySQL to capture information related to users, recipes, and likes. Maintain appropriate relationships and constraints between tables, such as foreign keys and unique constraints.
+- Designed the database schema using MySQL to capture information related to users, recipes, and likes. Maintain appropriate relationships and constraints between tables, such as foreign keys and unique constraints.
 - Use Hibernate as the ORM framework to map Java objects to database tables, providing a seamless integration between the application and the database.
 - Create an ER-Diagram to visualize the database structure and relationships.
 - Develop the project in a modular manner, following best practices to ensure reusability and scalability.
 
-# Schema
+## Schema
+
 <img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/4202114c-affa-44ea-b5a4-8edbb6971791"/>
 
-Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!
+## Code preview
+<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/d14cf0be-1143-40a4-9ecb-db6a7f7a0d7c"/>
+
+
+**Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!**
 
 **Note:- This is a basic project so I didn't think much about data security.**
 
