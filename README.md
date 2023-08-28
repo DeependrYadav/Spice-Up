@@ -2,7 +2,7 @@
 
 The Recipe Management System is a software solution designed to assist users in managing and organizing their recipes. This system provides a user-friendly interface to store, search, and retrieve recipes easily. Users can view recipes, filter them based on ingredients, and like their favorite recipes. The system also includes an admin user with additional functionalities to manage recipes, view likes, and perform CRUD operations on recipes. The project is developed using Java programming language, MySQL as the database management system, and Hibernate as the Object-Relational Mapping (ORM) framework.
 
-<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/d0c284f9-d722-4758-8d67-53419fe1f1b6"/>
+![Screenshot 2023-06-19 020811](https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/498563f0-7208-41da-bba2-1d2b32b9abf0)
 
 ## Table of Contents
 - [Domain Description](#domain-description)
@@ -31,7 +31,8 @@ The role of the customer in the Recipe Management System includes the following:
 5. Like or favorite recipes to save them for future reference.
 6. Log out from the Recipe Management System.
 
-<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/bd81f245-b2d8-4daa-8b0a-a32e7ccbf1bd"/>
+![Screenshot 2023-06-19 030143](https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/5fee1d1e-b18a-40e0-938c-6a9bda5cdf2e)
+
 
 ## Role of Admin
 The role of the admin in the Recipe Management System includes the following:
@@ -45,7 +46,8 @@ The role of the admin in the Recipe Management System includes the following:
 7. Generate reports on recipe likes and popularity.
 8. Log out from the admin account.
 
-<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/83b9718a-e024-47c4-87ba-ead61f07b0b6"/>
+![Screenshot 2023-06-19 021147](https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/25963b78-f76e-43b4-89b7-f0f6f0a6b200)
+
 
 
 ## This project was developed using the java programing language and it's utilizes hibernate , mysql liberaries
@@ -58,10 +60,11 @@ Here are some additional guidelines and considerations for the project:
 
 ## Schema
 
-<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/4202114c-affa-44ea-b5a4-8edbb6971791"/>
+![Screenshot 2023-06-19 015835](https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/a7ec22c8-d5a9-4cf5-9f81-a41f6a24f510)
 
 ## Code preview
-<img src = "https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/d14cf0be-1143-40a4-9ecb-db6a7f7a0d7c"/>
+
+![Screenshot 2023-06-19 021251](https://github.com/DeependrYadav/lonely-egg-2821/assets/121309012/0d60f7b4-7a0b-429e-b79a-94ca82af294f)
 
 
 **Feel free to explore the code and adapt it to your specific requirements. Enjoy managing and organizing your recipes with the Recipe Management System!**
