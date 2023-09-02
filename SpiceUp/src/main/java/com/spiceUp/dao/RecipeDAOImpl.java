@@ -18,16 +18,16 @@ import jakarta.persistence.Query;
 public class RecipeDAOImpl implements RecipeDAO {
 	static EntityManagerFactory emf = EMUtil.createEntityManager();
 	@Override
-	public void addRecipe(Recipe recipe) throws SomeThingWentWrongException {
-		EntityManager em = null;
+	public void addRecipe(Recipe recipe) throws SomeThingWentWrongException { // This function will add the recipe to database
+		EntityManager em = null; 
 		EntityTransaction et = null;
 		try {
 			String findQuery = "SELECT COUNT(r) FROM Recipe r WHERE r.recipe_name = :rn AND r.is_deleted = NO";
-			em = emf.createEntityManager();
-			Query query = em.createQuery(findQuery);
-			query.setParameter("rn", recipe.getRecipe_name());
+			em = emf.createEntityManager(); // creating EntityManager
+			Query query = em.createQuery(findQuery);// Running query for checking recipe name already exist or not
+			query.setParameter("rn", recipe.getRecipe_name());// setting parameter
 			
-			if((long)query.getSingleResult() > 0) {
+			if((long)query.getSingleResult() > 0) {// if recipe name already exist then throwing exception
 				throw new SomeThingWentWrongException("Recipe already exists with name " + recipe.getRecipe_name());
 			}
 			
@@ -37,7 +37,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 			em.persist(recipe);
 			et.commit();
 			
-			Messages.success("Recipe added successfully");
+			Messages.success("Recipe added successfully");// Printing message by the help of JavaFrame package that I created in this project 
 			Print.printLine(1);
 			
 		} catch (Exception e) {
