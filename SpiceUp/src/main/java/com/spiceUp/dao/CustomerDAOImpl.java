@@ -125,14 +125,14 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<Recipe> viewAllLikeRecipe() throws NoRecordFoundException, SomeThingWentWrongException {
+	public List<Recipe> viewAllLikeRecipe() throws NoRecordFoundException, SomeThingWentWrongException {// This function is show all liked recipe by customer
 		List<Recipe> list = new ArrayList<>();
 		
 		try (EntityManager em = emf.createEntityManager();){
 			
-			Customer customerFromDB = em.find(Customer.class, LoggedInUserId.loggedInUserId);
+			Customer customerFromDB = em.find(Customer.class, LoggedInUserId.loggedInUserId);//Finding user by ID
 			
-			if(customerFromDB.getRecipe_Set().size() == 0) {
+			if(customerFromDB.getRecipe_Set().size() == 0) {// If costumer did't liked any recipe 
 				throw new NoRecordFoundException("You Haven't liked any recipe");
 			}
 //			System.out.println(customerFromDB.getRecipe_Set());
