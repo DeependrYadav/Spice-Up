@@ -1,6 +1,6 @@
 package com.spiceUp.javaFrame;
 
-public class Design{
+public class Design{// This class store some design code of console 
     public static final String PREFIX = "\u001B[";
     public static final String POSTFIX = "m";
     public static final byte BOLD = 1;

@@ -4,7 +4,7 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Print{
+public class Print{// This class is print data console 
     public static String createTextNode(String txt, int length){
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < length; i++) str.append(txt);

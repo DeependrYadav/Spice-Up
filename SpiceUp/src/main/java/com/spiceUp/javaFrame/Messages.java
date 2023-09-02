@@ -7,7 +7,7 @@ public class Messages {
     static Design wd = new Design(53);
     static Design batch = new Design(150);
 
-    static{
+    static{// This static method show SpiceUp logo that I store in AppInfo class and Internally use Print class 
         wd.setBorder(1);
         wd.setBorder(1, 1, 1, 1);
         wd.setBorderStyle("+-","-+");
@@ -29,8 +29,10 @@ public class Messages {
         batch.setBorderColor(Design.RED);
         batch.setPadding(0, 1, 0, 1);
     }
+    // These all method give text style and font color to a particular line and Print class print the data in console
+    
     // util methods
-    public static void optionsTitle(String title, boolean cancelable){
+    public static void optionsTitle(String title, boolean cancelable){ 
         if(cancelable){
             Print.printlnStyle(title + " (TYPE '"+Print.wrapStyle('C', Design.GREEN, Design.BOLD, Design.ITALIC, Design.UNDERLINE)+"' FOR CANCELING ANYTIME):-\n", Design.ITALIC, Design.UNDERLINE);
         }
