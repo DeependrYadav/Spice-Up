@@ -13,8 +13,8 @@ public class Main {
 		do {
 			try {
 				do {
-					Messages.adminOption();
-					Messages.optionInput();
+					Messages.adminOption();// This method show options that admin can navigate through
+					Messages.optionInput();// This line show enter selection 
 					Print.printLine(1);
 					choice = sc.nextInt();
 					switch (choice) {
@@ -62,7 +62,7 @@ public class Main {
 		} while (choice != 0);
 	}
 
-	static void adminLogin(Scanner sc) {
+	static void adminLogin(Scanner sc) {// This method take admin username and password
 		Messages.takeInput("Enter username", null);
 		String username = sc.next();
 		Print.printLine(1);

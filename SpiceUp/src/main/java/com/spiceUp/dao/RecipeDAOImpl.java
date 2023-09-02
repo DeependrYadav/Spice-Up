@@ -18,7 +18,7 @@ import jakarta.persistence.Query;
 public class RecipeDAOImpl implements RecipeDAO {
 	static EntityManagerFactory emf = EMUtil.createEntityManager();
 	@Override
-	public void addRecipe(Recipe recipe) throws SomeThingWentWrongException { // This function will add the recipe to database
+	public void addRecipe(Recipe recipe) throws SomeThingWentWrongException { // This method will add the recipe to database
 		EntityManager em = null; 
 		EntityTransaction et = null;
 		try {
@@ -50,7 +50,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<Recipe> viewAllRecipes() throws SomeThingWentWrongException,NoRecordFoundException {// This function will show us all recipe 
+	public List<Recipe> viewAllRecipes() throws SomeThingWentWrongException,NoRecordFoundException {// This method will show us all recipe 
 		List<Recipe> list = null;
 		try(EntityManager em = emf.createEntityManager()){
 			Query q = em.createQuery("SELECT r FROM Recipe r WHERE r.is_deleted = NO");
@@ -67,7 +67,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 	
 	@Override
-	public void updateRecipe(Recipe recipe) throws SomeThingWentWrongException, NoRecordFoundException {// This function will update the recipe
+	public void updateRecipe(Recipe recipe) throws SomeThingWentWrongException, NoRecordFoundException {// This method will update the recipe
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
@@ -99,7 +99,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public void deleteRecipe(int recipe_id) throws SomeThingWentWrongException, NoRecordFoundException {// This function will delete recipe It perform soft delete 
+	public void deleteRecipe(int recipe_id) throws SomeThingWentWrongException, NoRecordFoundException {// This method will delete recipe It perform soft delete 
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
@@ -128,7 +128,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<Recipe> viewNumberOfLikes() throws SomeThingWentWrongException {// This function will told Number of likes 
+	public List<Recipe> viewNumberOfLikes() throws SomeThingWentWrongException {// This method will told Number of likes 
 		List<Recipe> list = null;
 		
 		EntityManager em = null;

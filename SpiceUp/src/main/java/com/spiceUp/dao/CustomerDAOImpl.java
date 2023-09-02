@@ -21,7 +21,7 @@ import jakarta.persistence.Query;
 public class CustomerDAOImpl implements CustomerDAO{
 	static EntityManagerFactory emf = EMUtil.createEntityManager(); 
 	@Override
-	public void login(String username, String password) throws NoRecordFoundException, SomeThingWentWrongException {// This function is checking user credentials
+	public void login(String username, String password) throws NoRecordFoundException, SomeThingWentWrongException {// This method is checking user credentials
 		try(EntityManager em = emf.createEntityManager()){
 			String check = "SELECT c.customer_id FROM Customer c WHERE username = :username AND password = :password AND is_deleted = NO";
 			Query q = em.createQuery(check);// Running query
@@ -42,7 +42,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void addCustomer(Customer cus) throws SomeThingWentWrongException {// This function is registering the new customer 
+	public void addCustomer(Customer cus) throws SomeThingWentWrongException {// This method is registering the new customer 
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
@@ -71,7 +71,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<Recipe> filterByIngredients(String str) throws NoRecordFoundException, SomeThingWentWrongException {// This function will filter the recipe by ingredients
+	public List<Recipe> filterByIngredients(String str) throws NoRecordFoundException, SomeThingWentWrongException {// This method will filter the recipe by ingredients
 		List<Recipe> list = null;
 		try(EntityManager em = emf.createEntityManager()){
 			
@@ -91,7 +91,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void addToLike(int recipe_id) throws NoRecordFoundException, SomeThingWentWrongException {// This function is add the recipe to the like column
+	public void addToLike(int recipe_id) throws NoRecordFoundException, SomeThingWentWrongException {// This method is add the recipe to the like column
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
@@ -125,7 +125,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<Recipe> viewAllLikeRecipe() throws NoRecordFoundException, SomeThingWentWrongException {// This function is show all liked recipe by customer
+	public List<Recipe> viewAllLikeRecipe() throws NoRecordFoundException, SomeThingWentWrongException {// This method is show all liked recipe by customer
 		List<Recipe> list = new ArrayList<>();
 		
 		try (EntityManager em = emf.createEntityManager();){
@@ -147,7 +147,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void deleteMyAccount() throws SomeThingWentWrongException {// This function is delete user account it perform soft delete
+	public void deleteMyAccount() throws SomeThingWentWrongException {// This method is delete user account it perform soft delete
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
