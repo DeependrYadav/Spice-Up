@@ -128,7 +128,7 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<Recipe> viewNumberOfLikes() throws SomeThingWentWrongException {
+	public List<Recipe> viewNumberOfLikes() throws SomeThingWentWrongException {// This function will told Number of likes 
 		List<Recipe> list = null;
 		
 		EntityManager em = null;
