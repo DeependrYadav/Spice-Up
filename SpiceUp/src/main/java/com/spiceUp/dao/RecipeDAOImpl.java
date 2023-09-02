@@ -99,20 +99,20 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public void deleteRecipe(int recipe_id) throws SomeThingWentWrongException, NoRecordFoundException {
+	public void deleteRecipe(int recipe_id) throws SomeThingWentWrongException, NoRecordFoundException {// This function will delete recipe It perform soft delete 
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
 			em = emf.createEntityManager();
 			
-			Recipe recipeFromDB = em.find(Recipe.class, recipe_id);
+			Recipe recipeFromDB = em.find(Recipe.class, recipe_id); // Finding recipe
 			
 			if(recipeFromDB == null) {
 				throw new NoRecordFoundException("No record found");
 			}
 			et = em.getTransaction();
 			et.begin();
-			recipeFromDB.setIs_deleted(IsDeleted.YES);
+			recipeFromDB.setIs_deleted(IsDeleted.YES);// Making value of is_deleted true
 			et.commit();
 			
 			Messages.success("Recipe deleted successfully");
