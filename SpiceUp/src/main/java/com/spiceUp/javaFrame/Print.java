@@ -185,10 +185,11 @@ public class Print{// This class is print data console
         for(int line = 1; line <= height; line++){
             boolean nextLine = false;
 
+            // Check if the current line falls within top or bottom margins and add a newline if necessary
             if((line > startTopMargin && line <= endTopMargin) || 
                (line > startBottomMargin && line <= endBottomMargin)){
                 designedString.append("\n");
-                continue;
+                continue; // Move to the next line
             }
 
             int leftBorderIndex = 0;
@@ -197,23 +198,28 @@ public class Print{// This class is print data console
             int bottomBorderIndex = 0;
 
             for(int cursor = 1; cursor <= width; cursor++){
+                // Check if the current cursor position falls within left or right margins and add a space if necessary
                 if((cursor > startLeftMargin && cursor <= endLeftMargin) ||
                    (cursor > startRightMargin && cursor <= endRightMargin)){
                     designedString.append(" ");
                 }
                 else if(cursor > startLeftBorder && cursor <= endLeftBorder){
+                    // Append a styled border character on the left side
                     designedString.append(wrapStyle(design.getBorderStyleVertical().charAt(leftBorderIndex),design.getBorderColor()));
                     leftBorderIndex = (leftBorderIndex + 1) % design.getBorderStyleVertical().length();
                 }
                 else if(cursor > startRightBorder && cursor <= endRightBorder){
+                    // Append a styled border character on the right side
                     designedString.append(wrapStyle(design.getBorderStyleVertical().charAt(rightBorderIndex),design.getBorderColor()));
                     rightBorderIndex = (rightBorderIndex + 1) % design.getBorderStyleVertical().length();
                 }
                 else if(line > startTopBorder && line <= endTopBorder){
+                    // Append a styled border character on the top side
                     designedString.append(wrapStyle(design.getBorderStyleHorizontal().charAt(topBorderIndex),design.getBorderColor()));
                     topBorderIndex = (topBorderIndex + 1) % design.getBorderStyleHorizontal().length();
                 }
                 else if(line > startBottomBorder && line <= endBottomBorder){
+                    // Append a styled border character on the bottom side
                     designedString.append(wrapStyle(design.getBorderStyleHorizontal().charAt(bottomBorderIndex),design.getBorderColor()));
                     bottomBorderIndex = (bottomBorderIndex + 1) % design.getBorderStyleHorizontal().length();
                 }
@@ -221,17 +227,20 @@ public class Print{// This class is print data console
                         (line > startBottomPadding && line <= endBottomPadding) ||
                         (cursor > startLeftPadding && cursor <= endLeftPadding) ||
                         (cursor > startRightPadding && cursor <= endRightPadding)){
+                    // Add padding by appending white space
                     designedString.append(WHITE_SPACE);
                 }
                 else{
                     if(contentStartHorizontal == cursor && charIndex < text.length() && text.charAt(charIndex) != Design.PREFIX.charAt(0)) {
+                        // Append text content with styling (if applicable)
                         designedString.append(styles.peek());
                     }
                     if(charIndex >= text.length()){
+                        // Append white space if no more text content
                         designedString.append(WHITE_SPACE);
                     }
                     else{
-                        // next line detection
+                        // Check for special characters, newlines, and text content
                         if(text.charAt(charIndex) == '\n' || text.charAt(charIndex) == '\r'){
                             nextLine = true;
                             space = 0;
@@ -241,12 +250,10 @@ public class Print{// This class is print data console
                             designedString.append(" ");
                         }
                         else{
-                            // unicode detection
-                            
+                            // Unicode detection and handling
                             if(text.charAt(charIndex) == Design.PREFIX.charAt(0)){
-                                // ANSI started:
+                                // ANSI styling started:
                                 StringBuilder str = new StringBuilder();
-
                                 boolean isReset = false;
                                 
                                 while(charIndex < text.length()){
@@ -285,7 +292,9 @@ public class Print{// This class is print data console
         }
 
         return designedString.toString();
+
     }
+    
     public static void printStyle(Object txt, byte... STYLES){
         System.out.print(wrapStyle(txt, STYLES));
     }
