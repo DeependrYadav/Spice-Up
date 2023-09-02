@@ -91,19 +91,19 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void addToLike(int recipe_id) throws NoRecordFoundException, SomeThingWentWrongException {
+	public void addToLike(int recipe_id) throws NoRecordFoundException, SomeThingWentWrongException {// This function is add the recipe to the like column
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
 			em = emf.createEntityManager();
 			
-			Recipe recipeFromDB = em.find(Recipe.class, recipe_id);
-			Customer customerFromDB = em.find(Customer.class, LoggedInUserId.loggedInUserId);
+			Recipe recipeFromDB = em.find(Recipe.class, recipe_id);// Finding recipe
+			Customer customerFromDB = em.find(Customer.class, LoggedInUserId.loggedInUserId);// Getting user ID
 			
-			if(recipeFromDB == null || recipeFromDB.getIs_deleted() == IsDeleted.YES) {
+			if(recipeFromDB == null || recipeFromDB.getIs_deleted() == IsDeleted.YES) {// Checking recipe is exist or not, If it exist then it is deleted or not
 				throw new NoRecordFoundException("No record found");
 			}
-			if(customerFromDB.getRecipe_Set().contains(recipeFromDB)) {
+			if(customerFromDB.getRecipe_Set().contains(recipeFromDB)) {// Checking Recipe already exist in like column or not
 				throw new NoRecordFoundException("You already liked this recipe");
 			}
 			et = em.getTransaction();
