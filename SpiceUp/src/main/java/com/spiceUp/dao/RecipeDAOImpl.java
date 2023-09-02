@@ -67,17 +67,18 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 	
 	@Override
-	public void updateRecipe(Recipe recipe) throws SomeThingWentWrongException, NoRecordFoundException {
+	public void updateRecipe(Recipe recipe) throws SomeThingWentWrongException, NoRecordFoundException {// This function will update the recipe
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
 			em = emf.createEntityManager();
 			
-			Recipe recipeFromDB = em.find(Recipe.class, recipe.getRecipe_id());
+			Recipe recipeFromDB = em.find(Recipe.class, recipe.getRecipe_id());// Finding the recipe by it's ID
 			
-			if(recipeFromDB == null) {
+			if(recipeFromDB == null) {// If recipe not found 
 				throw new NoRecordFoundException("No record found");
 			}
+			// Updating recipe
 			et = em.getTransaction();
 			et.begin();
 			recipeFromDB.setIngredients(recipe.getIngredients());
