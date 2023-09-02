@@ -1,6 +1,6 @@
 package com.spiceUp.entity;
 
-public class AppInfo {
+public class AppInfo {// This class store Description and logo of spiceup
     public final static String LOGO = "\r\n"
     		+ "   _____       _              __  __         \r\n"
     		+ "  / ___/____  (_)_______     / / / /___      \r\n"
