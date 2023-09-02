@@ -147,14 +147,14 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void deleteMyAccount() throws SomeThingWentWrongException {
+	public void deleteMyAccount() throws SomeThingWentWrongException {// This function is delete user account it perform soft delete
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
 			em = emf.createEntityManager();
 			
 			Query q = em.createNativeQuery("DELETE FROM like_table WHERE customer_set_customer_id = :cusId");
-			q.setParameter("cusId", LoggedInUserId.loggedInUserId);
+			q.setParameter("cusId", LoggedInUserId.loggedInUserId);// Finding User
 			
 			Customer customerFromDB = em.find(Customer.class, LoggedInUserId.loggedInUserId);
 			
@@ -162,7 +162,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 			et = em.getTransaction();
 			et.begin();
 //			customerFromDB.setRecipe_Set(null);
-			customerFromDB.setIs_deleted(IsDeleted.YES);
+			customerFromDB.setIs_deleted(IsDeleted.YES);// Putting Yes in is_deleted column
 			q.executeUpdate();
 			et.commit();
 			
