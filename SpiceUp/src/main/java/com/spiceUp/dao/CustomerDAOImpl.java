@@ -42,15 +42,15 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public void addCustomer(Customer cus) throws SomeThingWentWrongException {
+	public void addCustomer(Customer cus) throws SomeThingWentWrongException {// This function is registering the new customer 
 		EntityManager em = null;
 		EntityTransaction et = null;
 		try {
 			em = emf.createEntityManager();
 			String check = "SELECT COUNT(c) FROM Customer c WHERE username = :username";
-			Query q = em.createQuery(check);
+			Query q = em.createQuery(check);// Checking username is already exist or not 
 			q.setParameter("username", cus.getUsername());
-			if((long)q.getSingleResult() > 0) {
+			if((long)q.getSingleResult() > 0) {// If name is already exist
 				throw new SomeThingWentWrongException("Customer with this username already exist");
 			}
 			et = em.getTransaction();
