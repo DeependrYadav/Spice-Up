@@ -50,17 +50,17 @@ public class RecipeDAOImpl implements RecipeDAO {
 	}
 
 	@Override
-	public List<Recipe> viewAllRecipes() throws SomeThingWentWrongException,NoRecordFoundException {
+	public List<Recipe> viewAllRecipes() throws SomeThingWentWrongException,NoRecordFoundException {// This function will show us all recipe 
 		List<Recipe> list = null;
 		try(EntityManager em = emf.createEntityManager()){
 			Query q = em.createQuery("SELECT r FROM Recipe r WHERE r.is_deleted = NO");
 			
 			list = (List<Recipe>)q.getResultList();
 			
-			if(list.size() == 0)throw new NoRecordFoundException("No company Found");
+			if(list.size() == 0)throw new NoRecordFoundException("No company Found");// if Recipe list is 0 then throwing a exception
 			
 		}catch(Exception ex) {
-			ex.printStackTrace();
+//			ex.printStackTrace();
 			throw new SomeThingWentWrongException("Unable to process request, try again later");
 		}
 		return list;
