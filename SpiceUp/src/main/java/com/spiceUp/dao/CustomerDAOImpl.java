@@ -21,17 +21,17 @@ import jakarta.persistence.Query;
 public class CustomerDAOImpl implements CustomerDAO{
 	static EntityManagerFactory emf = EMUtil.createEntityManager(); 
 	@Override
-	public void login(String username, String password) throws NoRecordFoundException, SomeThingWentWrongException {
+	public void login(String username, String password) throws NoRecordFoundException, SomeThingWentWrongException {// This function is checking user credentials
 		try(EntityManager em = emf.createEntityManager()){
 			String check = "SELECT c.customer_id FROM Customer c WHERE username = :username AND password = :password AND is_deleted = NO";
-			Query q = em.createQuery(check);
-			q.setParameter("username", username);
-			q.setParameter("password", password);
+			Query q = em.createQuery(check);// Running query
+			q.setParameter("username", username);// Putting username
+			q.setParameter("password", password);// Putting user password
 			List<Integer> list = q.getResultList();
 			if(list.size() == 0) {
 				throw new NoRecordFoundException("Wrong password");
 			}
-			LoggedInUserId.loggedInUserId = list.get(0);
+			LoggedInUserId.loggedInUserId = list.get(0);// Setting user Id for future requests
 			
 			Messages.success("Successfully login");
 			Print.printLine(1);
