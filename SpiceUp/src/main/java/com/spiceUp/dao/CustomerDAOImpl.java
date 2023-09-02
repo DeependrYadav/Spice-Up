@@ -71,20 +71,20 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<Recipe> filterByIngredients(String str) throws NoRecordFoundException, SomeThingWentWrongException {
+	public List<Recipe> filterByIngredients(String str) throws NoRecordFoundException, SomeThingWentWrongException {// This function will filter the recipe by ingredients
 		List<Recipe> list = null;
 		try(EntityManager em = emf.createEntityManager()){
 			
-			Query q = em.createQuery("SELECT r FROM Recipe r WHERE r.ingredients LIKE :like");
+			Query q = em.createQuery("SELECT r FROM Recipe r WHERE r.ingredients LIKE :like");//Running query
 			
 			q.setParameter("like", str);
 			
 			list = (List<Recipe>)q.getResultList();
 			
-			if(list.size() == 0)throw new NoRecordFoundException("No record Found");
+			if(list.size() == 0)throw new NoRecordFoundException("No record Found");// If no record found 
 			
-		}catch(Exception ex) {
-			ex.printStackTrace();
+		}catch(Exception ex) {// In case of any exception this block will execute
+//			ex.printStackTrace();
 			throw new SomeThingWentWrongException("Unable to process request, try again later");
 		}
 		return list;
